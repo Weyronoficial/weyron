@@ -3,71 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Weyron - Área do Cliente</title>
+  <title>Weyron - Portal do Cliente</title>
   <link rel="stylesheet" href="style.css"/>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Weyron</h2>
-    <ul>
-      <li onclick="showSection('dashboard')">🏠 Dashboard</li>
-      <li onclick="showSection('pedidos')">📝 Meus Pedidos</li>
-      <li onclick="showSection('cursos')">🎓 Cursos</li>
-      <li onclick="showSection('ia')">🤖 IA</li>
-    </ul>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2 class="logo">Weyron</h2>
+      <nav>
+        <ul>
+          <li onclick="showSection('dashboard')">🏠 Dashboard</li>
+          <li onclick="showSection('pedidos')">📦 Pedidos</li>
+          <li onclick="showSection('ia')">🤖 Assistente IA</li>
+          <li onclick="showSection('cursos')">🎓 Cursos</li>
+          <li onclick="showSection('config')">⚙️ Configurações</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header>
+        <h1 id="section-title">Dashboard</h1>
+        <div class="user-info">👤 Cliente Weyron</div>
+      </header>
+
+      <section id="dashboard" class="section">
+        <p>Bem-vindo(a)! Aqui você gerencia tudo o que contratou com a Weyron.</p>
+        <div class="widgets">
+          <div class="widget">📊 12 Pedidos realizados</div>
+          <div class="widget">🚀 3 Mentorias disponíveis</div>
+          <div class="widget">✅ 5 entregas concluídas</div>
+        </div>
+      </section>
+
+      <section id="pedidos" class="section hidden">
+        <h2>Meus Pedidos</h2>
+        <button class="btn" onclick="toggleForm()">+ Novo Pedido</button>
+        <div id="pedidoForm" class="hidden form">
+          <input type="text" placeholder="Nome do Projeto">
+          <select>
+            <option>Post</option>
+            <option>Vídeo</option>
+            <option>Reels</option>
+            <option>Banner</option>
+          </select>
+          <textarea placeholder="Briefing..."></textarea>
+          <input type="file">
+          <button class="btn">Enviar Pedido</button>
+        </div>
+        <table>
+          <thead><tr><th>Projeto</th><th>Status</th><th>Ação</th></tr></thead>
+          <tbody>
+            <tr><td>Reels Promocional</td><td>Em produção</td><td><a href="#">Detalhes</a></td></tr>
+            <tr><td>Post Semana 32</td><td>Entregue</td><td><a href="#">Download</a></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="ia" class="section hidden">
+        <h2>Assistente IA</h2>
+        <iframe src="https://chatbot.url.exemplo" class="iframe-chat" title="IA Weyron"></iframe>
+      </section>
+
+      <section id="cursos" class="section hidden">
+        <h2>Cursos e Mentorias</h2>
+        <div class="cards">
+          <div class="card">🎨 Curso de Design Profissional</div>
+          <div class="card">🚀 Mentoria em Tráfego Pago</div>
+          <div class="card">💡 IA para Criadores</div>
+        </div>
+      </section>
+
+      <section id="config" class="section hidden">
+        <h2>Configurações da Conta</h2>
+        <p>Atualize suas preferências:</p>
+        <label>Email: <input type="email" placeholder="seuemail@exemplo.com"></label>
+        <label>Nome: <input type="text" placeholder="Seu nome"></label>
+        <button class="btn">Salvar</button>
+      </section>
+    </main>
   </div>
-
-  <div class="main-content">
-    <div id="dashboard" class="section">
-      <h1>Bem-vindo(a) à Weyron!</h1>
-      <p>Aqui você solicita artes, acompanha pedidos e acessa mentorias.</p>
-    </div>
-
-    <div id="pedidos" class="section" style="display:none;">
-      <h2>Meus Pedidos</h2>
-      <button class="btn" onclick="toggleForm()">Novo Pedido</button>
-      <div id="formPedido" style="display:none;">
-        <h3>Solicitar Arte</h3>
-        <input type="text" placeholder="Nome do Projeto"/>
-        <select>
-          <option>Post</option>
-          <option>Vídeo</option>
-          <option>Reels</option>
-          <option>Banner</option>
-          <option>Outro</option>
-        </select>
-        <textarea placeholder="Briefing..."></textarea>
-        <input type="file"/>
-        <button class="btn">Enviar</button>
-      </div>
-
-      <h3>Pedidos Recentes</h3>
-      <table>
-        <tr><th>Projeto</th><th>Status</th><th>Download</th></tr>
-        <tr><td>Post Instagram</td><td>Em produção</td><td><a href="#">Baixar</a></td></tr>
-        <tr><td>Vídeo Promo</td><td>Entregue</td><td><a href="#">Baixar</a></td></tr>
-      </table>
-    </div>
-
-    <div id="cursos" class="section" style="display:none;">
-      <h2>Cursos e Mentorias</h2>
-      <div class="cards">
-        <div class="card">🎨 Curso de Design</div>
-        <div class="card">🚀 Mentoria de Tráfego Pago</div>
-        <div class="card">🤖 Mini Curso IA</div>
-      </div>
-    </div>
-
-    <div id="ia" class="section" style="display:none;">
-      <h2>Assistente IA</h2>
-      <p>Como podemos te ajudar hoje?</p>
-      <textarea placeholder="Digite sua dúvida..."></textarea>
-      <button class="btn">Perguntar</button>
-    </div>
-  </div>
-
-  <a class="whatsapp-button" href="https://wa.me/SEUNUMERO" target="_blank">💬</a>
-
-  <script src="script.js"></script>
 </body>
 </html>

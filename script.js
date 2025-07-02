@@ -1,11 +1,14 @@
 
 function showSection(id) {
-  const sections = document.querySelectorAll('.section');
-  sections.forEach(sec => sec.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.add('hidden');
+  });
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById('section-title').innerText = 
+    id.charAt(0).toUpperCase() + id.slice(1);
 }
 
 function toggleForm() {
-  const form = document.getElementById('formPedido');
-  form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  const form = document.getElementById('pedidoForm');
+  form.classList.toggle('hidden');
 }
