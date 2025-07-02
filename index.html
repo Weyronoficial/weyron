@@ -1,39 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weyron - Portal do Cliente</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weyron - Área do Cliente</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="login-container" id="loginScreen">
-        <h1>Weyron</h1>
-        <p>Criatividade que conecta</p>
-        <input type="email" id="email" placeholder="E-mail">
-        <input type="password" id="senha" placeholder="Senha">
-        <button onclick="login()">Entrar</button>
+  <div class="sidebar">
+    <h2>Weyron</h2>
+    <ul>
+      <li onclick="showSection('dashboard')">🏠 Dashboard</li>
+      <li onclick="showSection('pedidos')">📝 Meus Pedidos</li>
+      <li onclick="showSection('cursos')">🎓 Cursos</li>
+      <li onclick="showSection('ia')">🤖 IA</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div id="dashboard" class="section">
+      <h1>Bem-vindo(a) à Weyron!</h1>
+      <p>Aqui você solicita artes, acompanha pedidos e acessa mentorias.</p>
     </div>
 
-    <div class="dashboard" id="clientDashboard" style="display:none;">
-        <h2>Olá, Cliente</h2>
-        <button onclick="showForm()">Novo Pedido</button>
-        <div id="formContainer" style="display:none;">
-            <h3>Solicitar Arte</h3>
-            <input type="text" placeholder="Nome do Projeto">
-            <select>
-                <option>Post</option>
-                <option>Vídeo</option>
-                <option>Reels</option>
-                <option>Banner</option>
-                <option>Outro</option>
-            </select>
-            <textarea placeholder="Briefing..."></textarea>
-            <input type="file">
-            <button>Enviar</button>
-        </div>
+    <div id="pedidos" class="section" style="display:none;">
+      <h2>Meus Pedidos</h2>
+      <button class="btn" onclick="toggleForm()">Novo Pedido</button>
+      <div id="formPedido" style="display:none;">
+        <h3>Solicitar Arte</h3>
+        <input type="text" placeholder="Nome do Projeto"/>
+        <select>
+          <option>Post</option>
+          <option>Vídeo</option>
+          <option>Reels</option>
+          <option>Banner</option>
+          <option>Outro</option>
+        </select>
+        <textarea placeholder="Briefing..."></textarea>
+        <input type="file"/>
+        <button class="btn">Enviar</button>
+      </div>
+
+      <h3>Pedidos Recentes</h3>
+      <table>
+        <tr><th>Projeto</th><th>Status</th><th>Download</th></tr>
+        <tr><td>Post Instagram</td><td>Em produção</td><td><a href="#">Baixar</a></td></tr>
+        <tr><td>Vídeo Promo</td><td>Entregue</td><td><a href="#">Baixar</a></td></tr>
+      </table>
     </div>
 
-    <script src="script.js"></script>
+    <div id="cursos" class="section" style="display:none;">
+      <h2>Cursos e Mentorias</h2>
+      <div class="cards">
+        <div class="card">🎨 Curso de Design</div>
+        <div class="card">🚀 Mentoria de Tráfego Pago</div>
+        <div class="card">🤖 Mini Curso IA</div>
+      </div>
+    </div>
+
+    <div id="ia" class="section" style="display:none;">
+      <h2>Assistente IA</h2>
+      <p>Como podemos te ajudar hoje?</p>
+      <textarea placeholder="Digite sua dúvida..."></textarea>
+      <button class="btn">Perguntar</button>
+    </div>
+  </div>
+
+  <a class="whatsapp-button" href="https://wa.me/SEUNUMERO" target="_blank">💬</a>
+
+  <script src="script.js"></script>
 </body>
 </html>
