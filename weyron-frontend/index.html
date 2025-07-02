@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weyron - Portal do Cliente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container" id="loginScreen">
+        <h1>Weyron</h1>
+        <p>Criatividade que conecta</p>
+        <input type="email" id="email" placeholder="E-mail">
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+    </div>
+
+    <div class="dashboard" id="clientDashboard" style="display:none;">
+        <h2>Olá, Cliente</h2>
+        <button onclick="showForm()">Novo Pedido</button>
+        <div id="formContainer" style="display:none;">
+            <h3>Solicitar Arte</h3>
+            <input type="text" placeholder="Nome do Projeto">
+            <select>
+                <option>Post</option>
+                <option>Vídeo</option>
+                <option>Reels</option>
+                <option>Banner</option>
+                <option>Outro</option>
+            </select>
+            <textarea placeholder="Briefing..."></textarea>
+            <input type="file">
+            <button>Enviar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
