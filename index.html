@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Weyron - Portal do Cliente</title>
+  <title>Weyron - Portal Completo</title>
   <link rel="stylesheet" href="style.css"/>
-  <script src="script.js" defer></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <div class="layout">
@@ -15,8 +15,10 @@
         <ul>
           <li onclick="showSection('dashboard')">🏠 Dashboard</li>
           <li onclick="showSection('pedidos')">📦 Pedidos</li>
-          <li onclick="showSection('ia')">🤖 Assistente IA</li>
           <li onclick="showSection('cursos')">🎓 Cursos</li>
+          <li onclick="showSection('ia')">🤖 Assistente IA</li>
+          <li onclick="showSection('financeiro')">💳 Pagamentos</li>
+          <li onclick="showSection('suporte')">🛠️ Suporte</li>
           <li onclick="showSection('config')">⚙️ Configurações</li>
         </ul>
       </nav>
@@ -25,15 +27,15 @@
     <main class="main">
       <header>
         <h1 id="section-title">Dashboard</h1>
-        <div class="user-info">👤 Cliente Weyron</div>
+        <div class="user-info">👤 Weyron User</div>
       </header>
 
       <section id="dashboard" class="section">
-        <p>Bem-vindo(a)! Aqui você gerencia tudo o que contratou com a Weyron.</p>
+        <p>Bem-vindo ao painel completo da Weyron.</p>
         <div class="widgets">
-          <div class="widget">📊 12 Pedidos realizados</div>
-          <div class="widget">🚀 3 Mentorias disponíveis</div>
-          <div class="widget">✅ 5 entregas concluídas</div>
+          <div class="widget">📦 Pedidos ativos: 4</div>
+          <div class="widget">🚀 Mentor. disponíveis: 2</div>
+          <div class="widget">✅ Entregas concluídas: 10</div>
         </div>
       </section>
 
@@ -43,44 +45,62 @@
         <div id="pedidoForm" class="hidden form">
           <input type="text" placeholder="Nome do Projeto">
           <select>
-            <option>Post</option>
-            <option>Vídeo</option>
-            <option>Reels</option>
-            <option>Banner</option>
+            <option>Post</option><option>Vídeo</option><option>Reels</option><option>Banner</option>
           </select>
-          <textarea placeholder="Briefing..."></textarea>
+          <textarea placeholder="Briefing detalhado..."></textarea>
           <input type="file">
           <button class="btn">Enviar Pedido</button>
         </div>
         <table>
           <thead><tr><th>Projeto</th><th>Status</th><th>Ação</th></tr></thead>
           <tbody>
-            <tr><td>Reels Promocional</td><td>Em produção</td><td><a href="#">Detalhes</a></td></tr>
-            <tr><td>Post Semana 32</td><td>Entregue</td><td><a href="#">Download</a></td></tr>
+            <tr><td>Post Oferta</td><td>Em produção</td><td><a href="#">Ver</a></td></tr>
+            <tr><td>Vídeo Natal</td><td>Entregue</td><td><a href="#">Baixar</a></td></tr>
           </tbody>
         </table>
       </section>
 
-      <section id="ia" class="section hidden">
-        <h2>Assistente IA</h2>
-        <iframe src="https://chatbot.url.exemplo" class="iframe-chat" title="IA Weyron"></iframe>
-      </section>
-
       <section id="cursos" class="section hidden">
-        <h2>Cursos e Mentorias</h2>
+        <h2>Mentorias & Cursos</h2>
         <div class="cards">
-          <div class="card">🎨 Curso de Design Profissional</div>
-          <div class="card">🚀 Mentoria em Tráfego Pago</div>
-          <div class="card">💡 IA para Criadores</div>
+          <div class="card">🎨 Design Estratégico</div>
+          <div class="card">📈 Tráfego Pago Avançado</div>
+          <div class="card">🤖 IA para Criadores</div>
         </div>
       </section>
 
+      <section id="ia" class="section hidden">
+        <h2>Chat IA</h2>
+        <iframe class="iframe-chat" src="https://chatbot.url.exemplo" title="Chat IA"></iframe>
+      </section>
+
+      <section id="financeiro" class="section hidden">
+        <h2>Financeiro</h2>
+        <p>Seu plano: <strong>Mensal - R$ 99,00</strong></p>
+        <ul>
+          <li>💳 Fatura de Julho: Paga</li>
+          <li>💳 Fatura de Agosto: Aguardando</li>
+        </ul>
+      </section>
+
+      <section id="suporte" class="section hidden">
+        <h2>Central de Suporte</h2>
+        <form>
+          <input type="text" placeholder="Assunto do chamado" />
+          <textarea placeholder="Descreva seu problema..."></textarea>
+          <button class="btn">Abrir chamado</button>
+        </form>
+        <h3>Chamados Recentes</h3>
+        <ul>
+          <li>#321 - Pedido fora do prazo - Em análise</li>
+        </ul>
+      </section>
+
       <section id="config" class="section hidden">
-        <h2>Configurações da Conta</h2>
-        <p>Atualize suas preferências:</p>
-        <label>Email: <input type="email" placeholder="seuemail@exemplo.com"></label>
-        <label>Nome: <input type="text" placeholder="Seu nome"></label>
-        <button class="btn">Salvar</button>
+        <h2>Configurações</h2>
+        <label>Email: <input type="email" placeholder="email@cliente.com"/></label>
+        <label>Nome: <input type="text" placeholder="Nome completo"/></label>
+        <button class="btn">Salvar Alterações</button>
       </section>
     </main>
   </div>
